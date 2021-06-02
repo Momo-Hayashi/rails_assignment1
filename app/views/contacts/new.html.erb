@@ -1,0 +1,30 @@
+<%= form_with(model: @contact, local: true) do |form| %>
+  <% if @contact.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
+     <ul>
+     <% @contact.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+ <h2>Contact</h2>
+  <div>
+    <%# form.label：HTMLのlabelタグ（説明文）を作成する %>
+    <%= form.label :Name %><br>
+    <%# #form.text_field：属性（type）をtextに指定 = HTMLのinputタグ（自由入力欄）作成 %>
+    <%= form.text_field :Name %>
+  </div>
+  <div>
+    <%= form.label :Email %><br>
+    <%= form.text_field :Email %>
+  </div>
+  <div>
+    <%= form.label :Content %><br>
+    <%= form.text_field :Content %>
+  </div>
+    <%# #form.submit：属性（type）をsubmitに指定 = HTMLのinputタグ（送信ボタン）作成 %>
+  <%= form.submit %>
+<% end %>
